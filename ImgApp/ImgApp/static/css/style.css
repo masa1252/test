@@ -1,0 +1,25 @@
+.imgList{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+h1{
+    font-size: 45px;
+}
+
+.divimg{
+    margin: 15px 0px;
+}
+
+#imglabel{
+    margin: 0px 15px 0px 0px;
+    padding: 8px 25px;
+    color: #ffffff;
+    background-color: #384878;
+    /* cursor: pointer; */
+}
+
+input[type="file"] {
+    display: none;
+}

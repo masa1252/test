@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>画像比較</h1>
+
+
+<form action="/result" method="post" enctype="multipart/form-data">
+    <input type="radio" name="category" id="food" value="food" checked>
+    <label for="food">食べ物</label>
+    <input type="radio" name="category" id="fashion" value="fashion">
+    <label for="fashion">衣類</label>
+    <input type="radio" name="category" id="other" value="other">
+    <label for="other">その他</label>
+    <br>
+    <div class="divimg">
+        <input type="file" name="inputImg" class="inputImg" id="imgfile">
+        <label id="imglabel" for="imgfile">ファイルを選択</label>
+        <input type="submit" name="submitBtn" class="submitBtn" value="解析">
+        {% if uploadImg %}
+            <br><br>
+            <img src="{{ uploadImg }}" style="height: 180px; width: 180px;" alt="画像">
+        {% endif %}
+    </div>
+</form>
+<div class="result">
+    <p><small>※なるべく単体で大きく写真に写るように撮影してください。
+        <br>　また、背景に何も写っていないか確認してください。</small></p>
+   
+    <h1>結果 </h1>
+    <div class="imgList">
+    {% if images %}
+        {% for path in images %}
+            <!-- <div> -->
+                <img src="{{ path }}" style="height: 180px; width: 180px;" alt="{{path.split('\\')[-1]}}">
+            <!-- </div> -->
+        {% endfor %}
+    {% endif %}
+    </div>  
+</div>
+{% endblock %}
